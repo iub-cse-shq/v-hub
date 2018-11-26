@@ -2,6 +2,7 @@
 var http = require('http');
 var express = require('express');
 var bodyParser = require('body-parser');
+var mongoose = require('mongoose');
 
 //Init App
 var app = express();
@@ -15,7 +16,7 @@ app.use(bodyParser.urlencoded({extended:true}));
 
 //############### Routes ###################
 app.get('/', function(req,res){
-    //EJS GOES HERE
+    //EJS Render GOES HERE
   res.send('OK');
 });
 
