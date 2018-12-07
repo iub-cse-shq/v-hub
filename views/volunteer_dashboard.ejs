@@ -1,0 +1,17 @@
+<%include ./partials/header.ejs%>
+    <body id="body">
+        <div class="container text-center">
+            <div class="card card-body">
+                <i class="fa fa-user-circle-o" style="font-size:25vh"></i>
+                <h1 class="card-text mt-5"><%=title%></h1>
+                <span>
+                <% for(var i=0; i< 5; i++){ %>
+                    <i class="fa fa-star" aria-hidden="true" style="font-size:4vh; color: #ffdd00"></i>
+                <% } %>
+                </span>
+                <!--<i class="fa fa-star" aria-hidden="true" style="font-size:5vh"></i>-->
+                <p class="card-text mt-3"><%=email%></p>
+                <h4 class="card-text mt-3"><%=address%></h4>
+            </div>
+        </div>
+<%include ./partials/footer.ejs%>

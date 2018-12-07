@@ -1,0 +1,93 @@
+<% include ./partials/header.ejs %>
+
+<body id="dashboardBdy">
+    
+ <h1 style="text-align:center;" id="sessionName"></h1> 
+ 
+ <div id="sd1" align=center>
+     <div id="sd2">
+         <div id="members">
+             <h2 style="color:#6df40c">Online</h2>
+     </div>
+     <div id="sd3">
+         <div id="sd4">
+              <div id="messages" align="left">
+                  
+              </div>
+         </div>
+         <div id="sd5">
+             <input class="form-control search" id="msgBox" rows="1" placeholder="Enter message..." ></input>
+         </div>
+         
+     </div>
+     
+ </div>
+
+ 
+ 
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+ <script src="/js/jquery.js"></script>
+ <script src="/socket.io/socket.io.js"></script>
+ <script>
+     $(document).ready(function() {
+        //   //--------------------------------HISTORY--------------------------------------
+        
+        //  var histor=JSON.parse(localStorage.getItem('sessionData'));
+        //  if("historyData" in localStorage){
+        //       console.log("LOCAL STORAGE ASE");
+        //       var histarr=JSON.parse(localStorage.getItem("historyData"));
+        //         histarr.push(histor);
+        //         localStorage.setItem('historyData',JSON.stringify(histarr));
+        //     } else {
+        //         console.log("HIS DATA NAI")
+        //         var histarr=[histor];
+        //         localStorage.setItem('historyData',JSON.stringify(histarr));
+        //     }
+        
+        //---------------------------------------------------------------------------------
+         var socket = io();
+        //  var t = JSON.parse(localStorage.getItem('sessionData'));
+        //  var u=JSON.parse(localStorage.getItem('userData'));
+        //  var sessionMsg={ss_id:"",s_msg:"",userID:"",t:""};
+         
+        //  $('#sessionName').text(t.s_name);
+         
+         $("#msgBox").on("keydown",function search(e) {
+            if(e.keyCode == 13) {
+                // alert($(this).val());
+                socket.emit('chat message', $('#msgBox').val());
+                $('#msgBox').val('');
+                return false;
+            }   
+          
+        });
+        socket.on('chat message', function(msg){
+        //   var d = new Date(); // for now
+        //   sessionMsg.ss_id=t.s_id
+        //   sessionMsg.s_msg=msg;
+        //   sessionMsg.userID=u.u_id;
+        //   sessionMsg.t=JSON.stringify(d.getHours())+":"+JSON.stringify(d.getMinutes())+":"+JSON.stringify(d.getSeconds());
+        //   console.log(sessionMsg);
+          var form=$('<div>').addClass("messageDiv").text(msg);
+          $('#messages').append(form);
+          var brk=$('<br>');
+          $('#messages').append(brk);
+          
+         
+        //   $.ajax({
+        //       method:"POST",
+        //       url:"/chatroom/saveMessage",
+        //       data: sessionMsg
+        //     }).done(function(response){
+        //       console.log(response);
+             
+        //     }).fail(function(response){
+        //       console.log("error")
+        //       console.log(response.responseText);
+        //     });
+        });
+     });
+     
+ </script>
+ 
+<% include ./partials/footer.ejs %>

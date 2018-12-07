@@ -1,0 +1,57 @@
+<%include ./partials/header.ejs%>
+<body id="body">
+     <div class = "container">
+          <img id="event-logo" src="/images/logo-wide.png">
+            <div class="card card-body form-group">
+                 <h2 style="text-align:center;"><b>Create New Event Form</b></h2><br>
+                <div class="row">
+                    <div class="col-md-4">
+                        <label for="eventName"><font size="4">Event Name</font></label>
+                        <input type="text" placeholder="Name Of The Event" id="name" class="form-control mb-4">
+                        <label for="eventDescription"><font size="4">Event Description</font></label>
+                        <textarea class="form-control" placeholder="Description Of The Event" id="eventDescriptionArea" rows="5"></textarea>                        
+                        <label for="eventDescription"><font size="4">Event Address</font></label>
+                        <textarea class="form-control" placeholder="Address Of The Event" id="eventAddress" rows="5"></textarea>
+                        <div class="form-group">
+                             <label for="imageInputFile"><font size="3">Add An Image For The Event</font></label>
+                             <input type="file" class="form-control-file" id="imageInputFile" aria-describedby="fileHelp">
+                        </div>
+                        <label for="eventStartDate"><font size="4">Event Start Date</font></label>
+                        <div id="startdatepicker" class="input-group date" data-date-format="mm-dd-yyyy">
+                            <input class="form-control" type="text" readonly />
+                            <span class="input-group-addon"><i class="fas fa-calendar-alt" style="font-size:18px;padding:3px;color:black"></i></span>
+                        </div>
+                        <label for="eventEndtDate"><font size="4">Event End Date</font></label>
+                        <div id="enddatepicker" class="input-group date" data-date-format="mm-dd-yyyy">
+                            <input class="form-control" type="text" readonly />
+                            <span class="input-group-addon"><i class="fas fa-calendar-alt" style="font-size:18px;padding:3px;color:black"></i></span>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-8">
+                        <img id="event-im1" src="/images/eventForm.jpg"><br><br>
+                        <button id="creatEvent-btn" class="btn btn-primary"><strong>Post Event</strong></button>
+                    </div>
+                </div>
+            </div>
+             
+    </div>
+     <!--Scripts-->
+    <script src="/js/jquery.js"></script>
+    <script>
+      $(function () {
+      $("#startdatepicker").datepicker({ 
+           autoclose: true, 
+           todayHighlight: true
+           }).datepicker('update', new Date());
+       });
+       $(function () {
+      $("#enddatepicker").datepicker({ 
+           autoclose: true, 
+           todayHighlight: true
+           }).datepicker('update', new Date());
+       });
+            
+    </script>
+
+<%include ./partials/footer.ejs%>

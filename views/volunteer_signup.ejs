@@ -1,0 +1,65 @@
+<%include ./partials/header.ejs%>
+<body id="body">
+    <div class="container">
+        <div class="text-center">
+            <img id="volsignup-logo" src="/images/logo-wide.png">
+            <div class="card card-body form-group">
+                <div class="row">
+                    <div class="col-md-4">
+                        <input type="text" placeholder="Name" id="name" class="form-control mb-4">
+                        <input type="email" placeholder="Email" id="email" class="form-control mb-4">
+                        <input type="number" placeholder="Age" min="13" id="age" class="form-control mb-4">
+                        
+                        <select class="form-control mb-4" id="sex">
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                        </select>
+                        <input type="text" placeholder="Address" id="address" class="form-control mb-4">
+                        <input type="text" placeholder="Prefered Area of Action" id="area" class="form-control mb-4">
+                        <input type="text" placeholder="Phone number" id="phone" class="form-control mb-4">
+                    </div>
+                    <div class="col-md-8">
+                        <img id="volsignup-im1" src="/images/vol1.jpg">
+                    </div>
+                </div>
+                <button id="volsignup-btn" class="btn btn-dark"><strong>Signup</strong></button>
+            </div>
+        </div>
+    </div>
+    
+    
+    <!--Scripts-->
+    <script src="/js/jquery.js"></script>
+    <script>
+        var volunteer = {
+            // name: "",
+            // email: "",
+            // age: 0,
+            // sex: "",
+            // address: "",
+            // area: "",
+            // phone: "",
+        };
+        $('#volsignup-btn').click(function(event){
+            volunteer = {
+                name: $('#name').val(),
+                email: $('#email').val(),
+                age: $('#age').val(),
+                sex: $('#sex option:selected').text(),
+                address: $('#address').val(),
+                area: $('#area').val(),
+                phone: $('#phone').val(),
+            }
+            
+            $.ajax({
+                method:"POST",
+                url:"/pre/save/volunteer",
+                data: volunteer
+            }).done(function(response){
+                window.location.replace("/volunteer/"+response.volunteerID);
+            }).fail(function(response){
+                console.log(response.responseText);
+            });
+        })
+    </script>
+<%include ./partials/footer.ejs%>

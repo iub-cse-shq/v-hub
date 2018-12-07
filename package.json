@@ -4,7 +4,8 @@
   "description": "Connect to your dream. Work as a volunteer in your dream projects.",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
@@ -18,8 +19,10 @@
   "homepage": "https://github.com/iub-cse-shq/v-hub#readme",
   "dependencies": {
     "body-parser": "^1.18.3",
+    "ejs": "^2.6.1",
     "express": "^4.16.4",
-    "mongoose": "^5.3.12"
+    "mongoose": "^5.3.12",
+    "socket.io": "^2.2.0"
   },
   "devDependencies": {
     "nodemon": "^1.18.6"

@@ -1,0 +1,119 @@
+#body{
+    background-color: #f7e3c0;    
+}
+
+#volsignup-logo{
+    width: 100%;
+    height: auto;
+}
+
+#volsignup-im1{
+    width: 90%;
+    height: auto;
+}
+
+#volsignup-btn{
+    width: 40%;
+    margin-left: 30%;
+    margin-top: 2%;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+#event-logo{
+    width: 100%;
+    height: auto;
+}
+ 
+#event-im1{
+        width: 70%;
+        height: auto;
+        margin-left: 17%;
+}
+#creatEvent-btn{
+    width: 40%;
+    margin-left: 30%;
+    margin-top: 5%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+    #org-logo{
+    width: 100%;
+    height: auto;
+} 
+   
+    #searchVol-btn{
+    width: 15%;
+    margin-left: 0%;
+    margin-top: 3.5%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+    #evt-logo{
+    width: 100%;
+    height: auto;
+} 
+    #vol-logo{
+    width: 100%;
+    height: auto;
+}
+
+    .checked {
+    color: orange;
+}
+#sd1
+{
+    background-color: purple;
+    height: 70vh;
+    width: 70vw;
+    margin:0 auto;
+    border-radius:16px;
+}
+#sd2
+{
+    background-color: #303130;
+    height: 70vh;
+    width: 15vw;
+    float:left;
+    overflow:auto;
+    border-radius:16px;
+}
+#sd3
+{
+    background-color: white;
+    height: 70vh;
+    width: 55vw;
+    float:left;
+    overflow:auto;
+    border-radius:16px;
+}
+#sd4
+{
+    background-color:#d8dbd5;
+    height:63.5vh;
+    width: 55vw;
+    overflow:auto;
+}
+#sd5
+{
+    background-color:white;
+    height:3vh;
+    width: 55vw;
+}
+#members
+{
+    /*background-color:blue;*/
+    width:15vw;
+    height:40vh;
+    overflow:auto;
+    padding-top:2%;
+}
+.messageDiv
+{
+    background-color:#4ec95d;
+    text-align: left;
+    padding:1%;
+    color:white;
+    font-weight:bold;
+    display: inline-block;
+    border-radius: 16px;;
+}

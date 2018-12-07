@@ -1,0 +1,67 @@
+<%include ./partials/header.ejs%>
+<body id="body">
+    <div class="container">
+        <div class="text-center">
+            <img id="signup-logo" src="/images/logo-wide.png">
+            <div class="card card-body form-group">
+                <div class="row">
+                    <div class="col-md-4">
+                        <input type="text" placeholder="Organization Name" id="name" class="form-control mb-4" required>
+                        <input type="email" placeholder="Organization Email" id="email" class="form-control mb-4" required>
+                        <input type="text" placeholder="Address" id="address" class="form-control mb-4">
+                        <input type="text" placeholder="Prefered Area of Action" id="area" class="form-control mb-4" required>
+                        <input type="text" placeholder="Phone number(Optional)" id="phone" class="form-control mb-4">
+                        <input type="text" placeholder="Organizational Website" id="web" class="form-control mb-4" required>
+                        <label for="comment">Short Description About Your Organization:</label>
+                        <textarea class="form-control" rows="5" id="orgDesc"></textarea>
+
+                    </div>
+                    <div class="col-md-8">
+                        <img id="signup-im1" style="border-radius: 16px;" src="https://cdn-images-1.medium.com/max/1200/1*sVpEiHHDkQWphC38yZywNA.png" width=600 height=400>
+                        <br>
+                        <label for="imageInputFile"><font size="3" style="font-weight:bold">Upload an image to represent your organization</font></label>
+                        <input type="file" class="form-control-file" id="imageInputFile" aria-describedby="fileHelp">
+                    </div>
+                </div>
+                <br>
+                <div align=center style="width:300px"><button id="orgsignup-btn" class="btn btn-dark"><strong>REGISTER</strong></button></div>
+            </div>
+        </div>
+    </div>
+    
+ <!--Scripts-->
+    <script src="/js/jquery.js"></script>
+    <script>
+        var organization = {
+            // name: "",
+            // email: "",
+            // age: 0,
+            // sex: "",
+            // address: "",
+            // area: "",
+            // phone: "",
+        };
+        $('#orgsignup-btn').click(function(event){
+            organization = {
+                org_name: $('#name').val(),
+                org_email: $('#email').val(),
+                org_web: $('#web').val(),
+                org_address: $('#address').val(),
+                org_area: $('#area').val(),
+                org_phone: $('#phone').val(),
+                org_orgDesc:$('#orgDesc').val()
+            }
+            
+            $.ajax({
+                method:"POST",
+                url:"/pre/save/organization",
+                data: organization
+            }).done(function(response){
+                console.log("O1");
+                window.location.replace("/organization/"+response.orgID);
+            }).fail(function(response){
+                console.log(response.responseText);
+            });
+        })
+    </script>
+<%include ./partials/footer.ejs%>
