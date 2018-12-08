@@ -30,6 +30,10 @@ var orgSchema = new Schema({
     desc:{
         type: String,
         required: "description required"
+    },
+    img:{
+        type:String,
+        required:"image required"
     }
 })
 var Organization = mongoose.model('Organization', orgSchema)

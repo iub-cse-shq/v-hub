@@ -1,23 +1,42 @@
 var mongoose = require("mongoose");
 
 var Schema = mongoose.Schema;
+var image = new Schema({ id: String });
 
 var eventSchema = new Schema({
-    title: {
+    name: {
       type: String,
-      required: "Title required"
+      required: "Name Required"
     },
-    priority: {
-      type: Number,
-      required: "Priority required",
-      min: 0,
-      max:10
-    },
-    notes: {
+    location: {
       type: String,
-      required: "Notes required"
-    } 
+      required: "location needed"
+    },
+    startdate: {
+      type: Date,
+      required: "date required"
+    },
+    enddate: {
+      type: Date,
+      required: "date required"
+    }, 
+    content: {
+      type: String
+    },
+    images: [image],
+    members: [{
+      type: mongoose.Schema.ObjectId, 
+      ref: 'Volunteer'
+    }],
     
-})
-var Event = mongoose.model('Event', eventSchema)
+    organization:{ 
+      type: String,
+      required: "Parent organization required"
+    },
+    status: {
+      type: Boolean,
+      default: false 
+    } 
+});
+var Event = mongoose.model('Event', eventSchema);
 module.exports = Event;

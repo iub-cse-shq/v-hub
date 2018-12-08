@@ -52,3 +52,4 @@ Future work -> Nafiz
 
 Q & A
 All team members must participate in the presentation 
+// https://dna-explained.com/wp-content/uploads/2015/09/organization.jpg // 

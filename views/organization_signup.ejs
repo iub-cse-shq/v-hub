@@ -1,8 +1,9 @@
 <%include ./partials/header.ejs%>
 <body id="body">
+    <%include ./partials/navbar.ejs%>
     <div class="container">
         <div class="text-center">
-            <img id="signup-logo" src="/images/logo-wide.png">
+            <img id="orgsignup-logo" src="/images/logo-wide.png">
             <div class="card card-body form-group">
                 <div class="row">
                     <div class="col-md-4">
@@ -17,10 +18,7 @@
 
                     </div>
                     <div class="col-md-8">
-                        <img id="signup-im1" style="border-radius: 16px;" src="https://cdn-images-1.medium.com/max/1200/1*sVpEiHHDkQWphC38yZywNA.png" width=600 height=400>
-                        <br>
-                        <label for="imageInputFile"><font size="3" style="font-weight:bold">Upload an image to represent your organization</font></label>
-                        <input type="file" class="form-control-file" id="imageInputFile" aria-describedby="fileHelp">
+                        <input type="text" placeholder="Enter Image URL: " id="img" class="form-control mb-4" required>
                     </div>
                 </div>
                 <br>
@@ -49,7 +47,8 @@
                 org_address: $('#address').val(),
                 org_area: $('#area').val(),
                 org_phone: $('#phone').val(),
-                org_orgDesc:$('#orgDesc').val()
+                org_orgDesc:$('#orgDesc').val(),
+                org_img:$('#img').val()
             }
             
             $.ajax({

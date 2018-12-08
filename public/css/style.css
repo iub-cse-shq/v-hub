@@ -1,10 +1,23 @@
 #body{
-    background-color: #f7e3c0;    
+    background-color: #40E0D0;    
 }
 
 #volsignup-logo{
     width: 100%;
     height: auto;
+}
+#orgsignup-logo{
+    width: 100%;
+    height: auto;
+}
+#orgdash-logo
+{
+  width: 100%;
+  height: 60vh;  
+}
+#datepicker{
+ width: 30vw;
+ height: 30vh;
 }
 
 #volsignup-im1{
@@ -18,6 +31,10 @@
     margin-top: 2%;
     padding-top: 5px;
     padding-bottom: 5px;
+}
+
+#volrating{
+    text-decoration: none;
 }
 #event-logo{
     width: 100%;

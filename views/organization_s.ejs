@@ -1,58 +1,28 @@
 <%include ./partials/header.ejs%>
 <body id="body">
-        <div class = "container">
+    <%include ./partials/navbar.ejs%>
+        <div class = "container"align="center">
           <img id="org-logo" src="/images/logo-wide.png">
             <div class="card card-body form-group">
-                 <h2 style="text-align:center;"><b>Search An Organization</b></h2><br>
+                
+                
+               <div id="datepicker" align="center">
+                    <input class="form-control" type="text" placeholder="Search Organization by Name" id="" readonly />
+                    <span class="input-group-btn">
+                      <!--<button></button>-->
+                      <button class="btn btn-warning" type="button" id="submit">Search</button>
+                    </span>
+                </div>
                 <div class="row">
                 <div class="col-lg-4 col-sm-6">
                   <div class="thumbnail">
                     <a href="https://www.wikipedia.org/">
-                    <img src="http://i.imgur.com/qK42fUu.jpg"></a> 
+                    <img src="http://i.imgur.com/qK42fUu.jpg" width="350" height="250"></a> 
                     <hr>
                     <h4 style="text-align:center;"><font size="5">Loren Epsum</font></h4>
                   </div>
                 </div>
-                <div class="col-lg-4 col-sm-6">
-                  <div class="thumbnail">
-                    <a href="https://www.wikipedia.org/">
-                    <img src="https://images.unsplash.com/photo-1435771112039-1e5b2bcad966?dpr=2&fit=crop&fm=jpg&h=825&q=50&w=1450"></a>
-                    <hr>
-                    <h4 style="text-align:center;"><font size="5">Loren Epsum</font></h4>
-                  </div>
-                </div>
-                <div class="col-lg-4 col-sm-6">
-                  <div class="thumbnail">
-                    <a href="https://www.wikipedia.org/">
-                    <img src="https://images.unsplash.com/photo-1442406964439-e46ab8eff7c4?dpr=2&fit=crop&fm=jpg&h=825&q=50&w=1450"></a>
-                    <hr>
-                    <h4 style="text-align:center;"><font size="5">Loren Epsum</font></h4>
-                  </div>
-                </div>
-                <div class="col-lg-4 col-sm-6">
-                  <div class="thumbnail">
-                    <a href="https://www.wikipedia.org/">
-                    <img src="https://images.unsplash.com/photo-1439524970634-649c37a69e5c?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&w=1450&h=825&fit=crop&s=bfda9916c885869b43b70738693428d9"></a>
-                    <hr>
-                    <h4 style="text-align:center;"><font size="5">Loren Epsum</font></h4>
-                  </div>
-                </div>
-                <div class="col-lg-4 col-sm-6">
-                  <div class="thumbnail">
-                    <a href="https://www.wikipedia.org/">
-                    <img src="http://i.imgur.com/qK42fUu.jpg"></a>
-                    <hr>
-                    <h4 style="text-align:center;"><font size="5">Loren Epsum</font></h4>
-                  </div>
-                </div>
-                <div class="col-lg-4 col-sm-6">
-                  <div class="thumbnail">
-                    <a href="https://www.wikipedia.org/">
-                    <img src="https://images.unsplash.com/photo-1435771112039-1e5b2bcad966?dpr=2&fit=crop&fm=jpg&h=825&q=50&w=1450"></a>
-                    <hr>
-                    <h4 style="text-align:center;"><font size="5">Loren Epsum</font></h4>
-                  </div>
-                </div>
+                
                 </div>
             </div>
         </div>

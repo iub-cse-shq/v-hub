@@ -1,4 +1,38 @@
 <%include ./partials/header.ejs%>
 <body id="body">
-    <h1>ORG DASHBOARD</h1>
+    <%include ./partials/navbar.ejs%>
+        <div class="container">
+        <div class="text-center">
+            <h1 align ="center" style="color:yellow;"><%=title%></h1>
+            <h2 align ="center"><%=web%></h2>
+            <img id="orgdash-logo" src="https://isodiol.com/wp-content/uploads/2018/08/IINT-PR-Aug2018-IINT-applauds-WHO-on-CBD.jpg">
+            <div class="card card-body form-group">
+                <div class="row">
+                    <div style="width:50px"></div>
+                    <div class="col-lg-5 col-sm-6" style="background-color:#f4d3b2">
+                        <div class="thumbnail">
+                            <a href="https://www.wikipedia.org/">
+                            <img src=""></a>
+                            <hr>
+                            <h3><font size="6">Details</font></h3>
+                            <p><font size="4">email: <%=web%> </font></p>
+                            <p><font size="4">Address: <%=address%> </font></p>
+                         </div>
+                     </div>
+                     <div style="width:75px"></div>
+                     <div class="col-lg-5 col-sm-6" style="background-color:#1ebea5">
+                        <div class="thumbnail">
+                            <a href="https://www.wikipedia.org/">
+                            <img src=""></a>
+                            <hr>
+                            <h3><font size="6">Events</font></h3>
+                            <p><font size="4">need to get event lists</font></p>
+                            
+                         </div>
+                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
 <%include ./partials/footer.ejs%>

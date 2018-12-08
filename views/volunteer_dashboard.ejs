@@ -1,17 +1,28 @@
 <%include ./partials/header.ejs%>
     <body id="body">
+        <%include ./partials/navbar.ejs%>
         <div class="container text-center">
             <div class="card card-body">
                 <i class="fa fa-user-circle-o" style="font-size:25vh"></i>
-                <h1 class="card-text mt-5"><%=title%></h1>
-                <span>
-                <% for(var i=0; i< 5; i++){ %>
-                    <i class="fa fa-star" aria-hidden="true" style="font-size:4vh; color: #ffdd00"></i>
-                <% } %>
-                </span>
-                <!--<i class="fa fa-star" aria-hidden="true" style="font-size:5vh"></i>-->
-                <p class="card-text mt-3"><%=email%></p>
-                <h4 class="card-text mt-3"><%=address%></h4>
+                <h1 class="card-text mt-5"><%=data.name%></h1>
+                <a id="volrating" href="#" data-toggle="tooltip" data-placement="top" title="rating: <%=data.rating%>" >
+                    <span>
+                    <% for(var i=1; i< 6; i++){ %>
+                        <% if(i <= data.rating) {%>
+                            <i class="fa fa-star" aria-hidden="true" style="font-size:4vh; color: #ffdd00"></i>
+                        <% } else {%>
+                            <i class="fa fa-star" aria-hidden="true" style="font-size:4vh; color: #000"></i>
+                        <% } %>
+                    <% } %>
+                    </span>
+                </a>
+                <p class="card-text mt-3"><%=data.email%></p>
+                <h4 class="card-text mt-3"><%=data.address%></h4>
+                <button class="btn btn-dark btn-lg" style="margin: auto;width: 15%;"><strong>Get CV</strong></button>
+                <hr>
+                <h2>Previous Works by <%=data.name%></h2>
+                <br>
+                
             </div>
         </div>
 <%include ./partials/footer.ejs%>

@@ -42,7 +42,9 @@ app.get('/', function(request,response){
 });
 
 require('./routes/pre-routes.js')(app);
+require('./routes/event-routes.js')(app);
 require('./routes/volunteer-routes.js')(app);
+require('./routes/organization-routes.js')(app);
 
 //######### Server Listen to port ##########
 server.listen(process.env.PORT || 3000, process.env.IP || 'localhost', function(){

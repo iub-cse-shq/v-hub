@@ -1,5 +1,6 @@
 <%include ./partials/header.ejs%>
 <body id="body">
+    <%include ./partials/navbar.ejs%>
     <div class="container">
         <div class="text-center">
             <img id="volsignup-logo" src="/images/logo-wide.png">
@@ -31,15 +32,7 @@
     <!--Scripts-->
     <script src="/js/jquery.js"></script>
     <script>
-        var volunteer = {
-            // name: "",
-            // email: "",
-            // age: 0,
-            // sex: "",
-            // address: "",
-            // area: "",
-            // phone: "",
-        };
+        var volunteer = {};
         $('#volsignup-btn').click(function(event){
             volunteer = {
                 name: $('#name').val(),

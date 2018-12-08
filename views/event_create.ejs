@@ -1,0 +1,36 @@
+<%include ./partials/header.ejs%>
+
+<body id="body">
+<%include ./partials/navbar.ejs%>
+     <div class = "container">
+          <img id="event-logo" src="/images/logo-wide.png">
+        <div class="card card-body form-group">
+            <h2 style="text-align:center;"><b>Create New Event Form</b></h2><br>
+            <div class="row">
+                <div class="col-md-9">
+                    <input type="text" placeholder="Name Of The Event" id="name" class="form-control mb-4">
+                    
+                    <textarea class="form-control mb-4" placeholder="Description Of The Event" id="eventDescriptionArea" rows="5"></textarea>                        
+                    
+                    <textarea class="form-control mb-4" placeholder="Address Of The Event" id="eventAddress" rows="5"></textarea>
+                    
+                    <input type="text" id="image" class="form-control mb-4" placeholder="Image URL">
+                    
+                    <input type="text" id="datepickerstart" class="form-control mb-4" placeholder="Event Start Date">
+                    
+                    <input type="text" id="datepickerend" class="form-control mb-4" placeholder="Event Ending Date">
+                </div>
+                
+                    
+                <div class="vl" style="border-left: 1px solid;height: 50vh; background-color: grey"></div>
+                <div class="col-md-2">
+                    <span style="color: red">*</span> The World takes the events too seriously. Make sure to be sure before creating an event.
+                </div>
+            </div>
+            <button id="creatEvent-btn" class="btn btn-dark"><strong>Post Event</strong></button>  
+        </div>
+    </div>
+    
+    
+
+<%include ./partials/footer.ejs%>
