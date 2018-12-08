@@ -14,8 +14,8 @@ module.exports.dashboard = function(request, response) {
     })
 }
 module.exports.search = function(request, response) {
-  response.render('organization_s.ejs', {
-        title: "Search | Organization"
+  response.render('searchPage.ejs', {
+        title: "Search Event, Organization or Volunteer"
     });
 }
 

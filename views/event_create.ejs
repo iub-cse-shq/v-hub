@@ -8,11 +8,11 @@
             <h2 style="text-align:center;"><b>Create New Event Form</b></h2><br>
             <div class="row">
                 <div class="col-md-9">
-                    <input type="text" placeholder="Name Of The Event" id="name" class="form-control mb-4">
+                    <input type="text" placeholder="Title Of The Event" id="name" class="form-control mb-4">
                     
-                    <textarea class="form-control mb-4" placeholder="Description Of The Event" id="eventDescriptionArea" rows="5"></textarea>                        
+                    <textarea class="form-control mb-4" placeholder="Description Of The Event" id="description" rows="5"></textarea>                        
                     
-                    <textarea class="form-control mb-4" placeholder="Address Of The Event" id="eventAddress" rows="5"></textarea>
+                    <textarea class="form-control mb-4" placeholder="Location Of The Event" id="location" rows="5"></textarea>
                     
                     <input type="text" id="image" class="form-control mb-4" placeholder="Image URL">
                     
@@ -31,6 +31,32 @@
         </div>
     </div>
     
-    
+     <!--Scripts-->
+    <script src="/js/jquery.js"></script>
+    <script>
+        var event = {};
+        $('#volsignup-btn').click(function(event){
+            event = {
+                name: $('#name').val(),
+                description: $('#description').val(),
+                location: $('#location').val(),
+                image: $('#image').text(),
+                startdate: $('#datepickerstart').val(),
+                enddate: $('#datepickerend').val(),
+                organization: "ORG Name goes here"
+            }
+            console.log(event)
+            /*
+            $.ajax({
+                method:"POST",
+                url:"/pre/save/volunteer",
+                data: volunteer
+            }).done(function(response){
+                window.location.replace("/volunteer/"+response.volunteerID);
+            }).fail(function(response){
+                console.log(response.responseText);
+            });*/
+        })
+    </script>
 
 <%include ./partials/footer.ejs%>

@@ -8,6 +8,10 @@ var eventSchema = new Schema({
       type: String,
       required: "Name Required"
     },
+    description: {
+      type: String,
+      required: "location needed"
+    },
     location: {
       type: String,
       required: "location needed"
@@ -23,7 +27,7 @@ var eventSchema = new Schema({
     content: {
       type: String
     },
-    images: [image],
+    image: [image],
     members: [{
       type: mongoose.Schema.ObjectId, 
       ref: 'Volunteer'
