@@ -3,7 +3,7 @@
         <%include ./partials/navbar.ejs%>
         <div class="container text-center">
             <div class="card card-body">
-                <i class="fa fa-user-circle-o" style="font-size:25vh"></i>
+                <img src="<%=data.image%>" id="volDP">
                 <h1 class="card-text mt-5"><%=data.name%></h1>
                 <a id="volrating" href="#" data-toggle="tooltip" data-placement="top" title="rating: <%=data.rating%>" >
                     <span>

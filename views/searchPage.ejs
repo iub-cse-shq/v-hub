@@ -8,24 +8,211 @@
                 
                <div id="datepicker" align="center">
                  <div class="input-group">
-                      <input class="form-control" type="text" placeholder="Search Organization by Name" id="" readonly />
+                      <input class="form-control" type="text" placeholder="Search by Name" id="searchInput"/>
                       <span class="input-group-btn">
-                        <button class="btn btn-warning" type="button" id="search"><i class="fas fa-search"></i></button>
+                        <button class="btn btn-success" type="button" id="searchOrgBtn">Search Organization</button>
+                        <button class="btn btn-dark" type="button" id="searchVolBtn">Search Volunteer</button>
+                        <button class="btn btn-warning" type="button" id="searchEventBtn">Search Event</button>
                       </span>
                   </div>
                 </div>
-                <div class="row">
-                <div class="col-lg-4 col-sm-6">
-                  <div class="thumbnail">
-                    <a href="https://www.wikipedia.org/">
-                    <img src="http://i.imgur.com/qK42fUu.jpg" width="350" height="250"></a> 
-                    <hr>
-                    <h4 style="text-align:center;"><font size="5">Loren Epsum</font></h4>
-                  </div>
-                </div>
                 
+                <div class="row" id="dynmc">
+                    
                 </div>
             </div>
         </div>
+        <script src="/js/jquery.js"></script>
+    
+    
+    <script>
+         // SEARCH ORGANIZATION BUTTON CLICKED
+         
+         $('#searchOrgBtn').click(function(event){
+             
+           $( "#del" ).remove();
+           var sKey={
+               searchKey: $('#searchInput').val()
+           }
+           
+            $.ajax({
+                 method:"POST",
+                 url:"/search/organization",
+                 data:sKey
+             }).done(function(response){
+                 console.log(response)
+                
+                // console.log(typeof(response.orgData[0].name));
+                 var l= ((response.orgData).length);
+                // console.log("DATA?")
+                // console.log((response.orgData).length);
+                for(var i=0; i< l; i++){ 
+                      if((response.orgData).length == 0) {
+                          alert("DOES NOT EXIST");
+                      } else {
+                        
+                        var coldiv = $('<div>').addClass("col-md-3").attr("id","del");
+                              
+                        var carddiv=$('<div>').addClass("card");
+                        
+                        var img = $('<img>').addClass("card-img-top");
+                        
+                        img.attr('src',"http://i.imgur.com/qK42fUu.jpg");
+                        carddiv.append(img);
+                        
+                            
+                        var cardbodydiv = $('<div>').addClass("card-body");
+                        
+                        var a=$('<a>').attr("href","https://v-hub-shamahoque.c9users.io/organization/"+response.orgData[i]._id);
+                        var namefont=$('<font>').attr({size:"5"}).text(response.orgData[i].name);
+                        a.append(namefont);
+                        cardbodydiv.append(a);
+                        
+                        var brk=$('<br>');
+                        cardbodydiv.append(brk);
+                        
+                        var webfont=$('<font>').attr({size:"4"}).text(response.orgData[i].web);
+                        cardbodydiv.append(webfont);
+                        
+                        carddiv.append(cardbodydiv);
+                        coldiv.append(carddiv);
+                        $('#dynmc').append(coldiv);
+                        
+                      } 
+                 } 
+             }).fail(function(response){
+                 console.log("error khaise")
+                 console.log(response.responseText);
+             });
+         })
+         
+         // SEARCH VOLUNTEER BUTTON CLICKED pic name rating //event  Event-> Title, location, Organizer, status
+         $('#searchVolBtn').click(function(event){
+           $( "#del" ).remove();          
+           var sKey={
+               searchKey: $('#searchInput').val()
+           }
+          
+           $.ajax({
+                 method:"POST",
+                 url:"/search/volunteer",
+                 data:sKey
+             }).done(function(response){
+                // console.log(typeof(response.orgData[0].name));
+                 var l= ((response.volData).length);
+                // console.log("DATA?")
+                // console.log((response.orgData).length);
+                for(var i=0; i< l; i++){ 
+                       if((response.volData).length == 0) {
+                          alert("DOES NOT EXIST");
+                       } else {
+                            var coldiv = $('<div>').addClass("col-md-3").attr("id","del");
+                              
+                        var carddiv=$('<div>').addClass("card");
+                        
+                        var img = $('<img>').addClass("card-img-top");
+                        
+                        img.attr('src',"http://i.imgur.com/qK42fUu.jpg");
+                        carddiv.append(img);
+                        
+                            
+                        var cardbodydiv = $('<div>').addClass("card-body");
+                        
+                        var a=$('<a>').attr("href","https://v-hub-shamahoque.c9users.io/organization/"+response.orgData[i]._id);
+                        var namefont=$('<font>').attr({size:"5"}).text(response.volData[i].name);
+                        a.append(namefont);
+                        cardbodydiv.append(a);
+                        
+                        var brk=$('<br>');
+                        cardbodydiv.append(brk);
+                        //---------------RATING---------------------------------------
+                        var ratingS=$('<i>')addClass.attr({});;
+                        for(var i=1; i< response.volData[i].rating; i++){ 
+                         if(i <= response.volData[i].rating) {
+                            <i class="fa fa-star" aria-hidden="true" style="font-size:4vh; color: #ffdd00"></i>
+                            ratingS..attr({});
+                         } else {
+                            <i class="fa fa-star" aria-hidden="true" style="font-size:4vh; color: #000"></i>
+                         } 
+                       }
+                       //---------------RATING---------------------------------------
+                        // var webfont=$('<font>').attr({size:"4"}).text(response.volData[i].web);
+                        // cardbodydiv.append(webfont);
+                        
+                        carddiv.append(cardbodydiv);
+                        coldiv.append(carddiv);
+                        $('#dynmc').append(coldiv);
+                        
+                       } 
+                 } 
+             }).fail(function(response){
+                 console.log("error khaise")
+                 console.log(response.responseText);
+             });
+         })
+      $('#searchEventBtn').click(function(event){
+           $( "#del" ).remove();          
+           var sKey={
+               searchKey: $('#searchInput').val()
+           }
+          
+           $.ajax({
+                 method:"POST",
+                 url:"/search/volunteer",
+                 data:sKey
+             }).done(function(response){
+                // console.log(typeof(response.orgData[0].name));
+                 var l= ((response.volData).length);
+                // console.log("DATA?")
+                // console.log((response.orgData).length);
+                for(var i=0; i< l; i++){ 
+                       if((response.volData).length == 0) {
+                          alert("DOES NOT EXIST");
+                       } else {
+                            var coldiv = $('<div>').addClass("col-md-3").attr("id","del");
+                              
+                        var carddiv=$('<div>').addClass("card");
+                        
+                        var img = $('<img>').addClass("card-img-top");
+                        
+                        img.attr('src',"http://i.imgur.com/qK42fUu.jpg");
+                        carddiv.append(img);
+                        
+                            
+                        var cardbodydiv = $('<div>').addClass("card-body");
+                        
+                        var a=$('<a>').attr("href","https://v-hub-shamahoque.c9users.io/organization/"+response.orgData[i]._id);
+                        var namefont=$('<font>').attr({size:"5"}).text(response.volData[i].name);
+                        a.append(namefont);
+                        cardbodydiv.append(a);
+                        
+                        var brk=$('<br>');
+                        cardbodydiv.append(brk);
+                        //---------------RATING---------------------------------------
+                        var ratingS=$('<i>')addClass.attr({});;
+                        for(var i=1; i< response.volData[i].rating; i++){ 
+                         if(i <= response.volData[i].rating) {
+                            <i class="fa fa-star" aria-hidden="true" style="font-size:4vh; color: #ffdd00"></i>
+                            ratingS..attr({});
+                         } else {
+                            <i class="fa fa-star" aria-hidden="true" style="font-size:4vh; color: #000"></i>
+                         } 
+                       }
+                       //---------------RATING---------------------------------------
+                        // var webfont=$('<font>').attr({size:"4"}).text(response.volData[i].web);
+                        // cardbodydiv.append(webfont);
+                        
+                        carddiv.append(cardbodydiv);
+                        coldiv.append(carddiv);
+                        $('#dynmc').append(coldiv);
+                        
+                       } 
+                 } 
+             }).fail(function(response){
+                 console.log("error khaise")
+                 console.log(response.responseText);
+             });
+         })
+    </script>
     
 <%include ./partials/footer.ejs%>    

@@ -1,44 +1,47 @@
 <%include ./partials/header.ejs%>
 
-    <body id="body">
-        <%include ./partials/navbar.ejs%>
+<body id="body">
+    <%include ./partials/navbar.ejs%>
+    <div class="container">
+        <div class="row">
+            <div class='col-sm-12' style="background-color: #eaeaea;" ><img class="d-block w-100 img-responsive" src="<%=event.image[0]%>"></div>
+        </div>
 
-            <body>
-                <div class="container">
-                    <div class="row" >
-                        <div class="heading">
-                            <img src="<%=event.image[0].id%>" style="width:100%">
-                        </div>
-                    <div>
-                    
-                    <div class="row align-items-start justify-content-start">
-                        <div class="col-sm-9" style="background: brown">
-                            <h1><%=event.name%></h1>
-                            <h2 align="left">Description</h2>
-                            <p><%=event.content%><p>
-                        </div>
-                                
-                    <div class="col-sm-2" style="background: blue">
-                        <img src="https://i.imgur.com/n8EHZtG.jpg" alt="A boy" width="250" height="250">
-                        <h2>                
-                            <a href="https://www.urbandictionary.com/define.php?term=tree%20hugger"><%=event.organization%></a>
-                        </h2>
-                        <p> HAVEN"T DECIDED WHAT TO PUT HERE MAYBE EDIT IF LOCAL HAS ORG AND APPLY IF LOCAL HAS VOLUNTEER </p>
-                    </div>
-                </div>
+        <div class="row align-items-start justify-content-start">
+            <div class="col-sm-8" style="background-color: #e0dece; height:600px;">
+                <h1>
+                    <%=event.name%>
+                </h1>
+                <h4>Location: <%=event.location%></h4>
+                <hr>
+                <h3 align="left">About <%=event.name%></h3>
+                <p><%=event.description%></p>
+            </div>
 
-                 <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
-                                <div class="carousel-inner">
-                                    <div class="carousel-item active">
-                                        <img class="d-block w-100" src="<%=event.image[1].id%>" alt="First slide">
-                                    </div>
-                                    <div class="carousel-item">
-                                        <img class="d-block w-100" src="<%=event.image[2].id%>" alt="Second slide">
-                                    </div>
-                                    <div class="carousel-item">
-                                        <img class="d-block w-100" src="<%=event.image[3].id%>" alt="Third slide">
-                                </div>
-                        </div>
-                </div>           
+            <div class="col-sm-4" style="background-color: #eaeaea; height:600px">
+                <br>
+                <h2>Event Details:</h2>
+                <hr>
+                
+                <h4>Organized by: <br>
+                    <a style="text-decoration: none; color: Black" href="https://www.urbandictionary.com/define.php?term=tree%20hugger">
+                       <br> <%=event.organization%>
+                    </a>
+                </h4>
+                <br><br>
+                <p>Starting Date: <%=event.startdate%>, <%=event.starttime%></p>
+                <p>Ending Date: <%=event.enddate%>, <%=event.endtime%></p>
+                <% if(event.status) { %>
+                    <p>Status: Closed</p>
+                <% } else { %>
+                    <p>Status: Open</p>
+                <% } %>
+                
+                
+                
+            </div>
+        </div>
+    </div>
 
-<%include ./partials/footer.ejs%>
+
+    <%include ./partials/footer.ejs%>

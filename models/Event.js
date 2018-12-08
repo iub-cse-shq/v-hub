@@ -1,7 +1,6 @@
 var mongoose = require("mongoose");
 
 var Schema = mongoose.Schema;
-var image = new Schema({ id: String });
 
 var eventSchema = new Schema({
     name: {
@@ -17,17 +16,25 @@ var eventSchema = new Schema({
       required: "location needed"
     },
     startdate: {
-      type: Date,
+      type: String,
       required: "date required"
+    },
+    starttime: {
+      type: String,
+      required: "starttime required"
     },
     enddate: {
-      type: Date,
+      type: String,
       required: "date required"
-    }, 
-    content: {
-      type: String
     },
-    image: [image],
+    endtime: {
+      type: String,
+      required: "endtime required"
+    },
+    image:{
+      type: String,
+      required: "image required"
+    },
     members: [{
       type: mongoose.Schema.ObjectId, 
       ref: 'Volunteer'

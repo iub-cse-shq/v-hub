@@ -10,7 +10,11 @@ module.exports.vol_signup = function(request, response) {
         title: "Signup | Volunteer"
     });
 };
-
+module.exports.chat = function(request, response) {
+    response.render('chatRoom.ejs', {
+        title: "Chatroom"
+    });
+};
 module.exports.org_signup = function(request, response) {
     response.render('organization_signup.ejs', {
         title: "Signup | Organization"
@@ -23,12 +27,13 @@ module.exports.vol_save = function(request, response) {
         email: request.body.email,
         age: request.body.age,
         sex: request.body.sex,
+        image: request.body.image,
         address: request.body.address,
         area: request.body.area,
         phone: request.body.phone
     });
 
-    console.log(new_volunteer);
+    //console.log(new_volunteer);
     new_volunteer.save(function(err, data) {
         if (err)
             return response.status(400).json({ error: err });
@@ -60,4 +65,8 @@ module.exports.org_save = function(request, response) {
         });
     });
 };
-
+module.exports.search = function(request, response) {
+  response.render('searchPage.ejs', {
+        title: "Search Event, Organization or Volunteer"
+    });
+}

@@ -18,7 +18,11 @@
                     
                     <input type="text" id="datepickerstart" class="form-control mb-4" placeholder="Event Start Date">
                     
+                    <input type="text" id="starttime" class="form-control mb-4" placeholder="Event Start Time">
+                    
                     <input type="text" id="datepickerend" class="form-control mb-4" placeholder="Event Ending Date">
+                    
+                    <input type="text" id="endtime" class="form-control mb-4" placeholder="Event Ending Time">
                 </div>
                 
                     
@@ -35,27 +39,29 @@
     <script src="/js/jquery.js"></script>
     <script>
         var event = {};
-        $('#volsignup-btn').click(function(event){
+        $('#creatEvent-btn').click(function(event){
             event = {
                 name: $('#name').val(),
                 description: $('#description').val(),
                 location: $('#location').val(),
-                image: $('#image').text(),
+                image: $('#image').val(),
                 startdate: $('#datepickerstart').val(),
                 enddate: $('#datepickerend').val(),
-                organization: "ORG Name goes here"
+                organization: "Oumphtech",
+                starttime: $('#starttime').val(),
+                endtime: $('#endtime').val()
             }
-            console.log(event)
-            /*
+            
+            
             $.ajax({
                 method:"POST",
-                url:"/pre/save/volunteer",
-                data: volunteer
+                url:"/event/save",
+                data: event
             }).done(function(response){
-                window.location.replace("/volunteer/"+response.volunteerID);
+                window.location.replace("/event/"+response.event);
             }).fail(function(response){
                 console.log(response.responseText);
-            });*/
+            });
         })
     </script>
 

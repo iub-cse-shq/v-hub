@@ -23,6 +23,10 @@ var volSchema = new Schema({
         type: String,
         required: "sex required"
     },
+    image:{
+        type: String,
+        required: "image required"
+    },
     address:{
         type: String,
         required: "address required"

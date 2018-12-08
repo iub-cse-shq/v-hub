@@ -13,9 +13,16 @@ module.exports.dashboard = function(request, response) {
         });
     })
 }
-module.exports.search = function(request, response) {
-  response.render('searchPage.ejs', {
-        title: "Search Event, Organization or Volunteer"
-    });
+
+module.exports.searchOrg = function(request, response) {
+    console.log(request.body);
+    Organization.find({name: request.body.searchKey}, function(err, data){
+        if(err)
+            return response.status(400).json({error: err});
+        console.log(data);
+        return response.status(200).json({               
+            orgData: data
+      });
+    })
 }
 

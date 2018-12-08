@@ -11,3 +11,14 @@ module.exports.dashboard = function(request, response) {
         });
     })
 }
+module.exports.searchVol = function(request, response) {
+    console.log(request.body.searchKey);
+    Volunteer.find({name: request.body.searchKey}, function(err, data){
+        if(err)
+            return response.status(400).json({error: err});
+        console.log(data);
+        return response.status(200).json({               
+            volData: data
+      });
+    })
+}

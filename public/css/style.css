@@ -36,6 +36,12 @@
 #volrating{
     text-decoration: none;
 }
+
+#volDP{
+    width: 250px;
+    border-radius: 50%;
+    margin-left: 40%;
+}
 #event-logo{
     width: 100%;
     height: auto;
@@ -76,6 +82,97 @@
 
     .checked {
     color: orange;
+}
+ #hbd
+{
+    /*background-color: #e8ae02;*/
+    background-image :url(https://www.futuristgerd.com/wp-content/uploads/2018/02/mobile-week-barcelona-future-is-now-7-key-principles-gerd-leonhard.031.jpeg);
+    width: 100vw;
+    height: 100vh;
+    background-size: 100% 100%;
+}
+
+#logo
+{
+    margin:auto;
+    padding-top:15%;
+    /*background-color:blue;*/
+    height: 500px;
+    width:500px;
+    
+}
+#dashboardBdy
+{
+    background-color: linen;
+    margin-top:2%;
+}
+/*.btn*/
+/*{*/
+/*    margin-top:5%;*/
+/*    padding-left:10%;*/
+/*    padding-right:10%;*/
+/*    margin-left:2%;*/
+/*}*/
+#head
+{
+    font-family: 'Lobster', cursive;
+    color:#02013d;
+    font-size: 5em;
+    text-shadow: 0 0 10px #ffffff;
+}
+input
+{
+   text-align:center;
+}
+
+h1
+{
+    font-family: 'Lobster', cursive;
+    color:#02013d;
+    font-size: 5em;
+    text-shadow: 0 0 10px #ffffff;
+}
+#chtrm
+{
+    /*background-color: #f8bb25;*/
+    background-image :url(https://www.xmple.com/wallpaper/linear-blue-turquoise-gradient-1920x1080-c2-1cfea9-1c51fe-a-195-f-14.svg);
+    width: 100vw;
+    height: 100vh;
+    background-size: 100% 100%;
+    /*margin-top:2%;*/
+}
+#options
+{
+    /*background-color:red;*/
+    height:50vh;
+    width:30vw;
+    float: left;
+    margin-left:28%;
+    border-radius:32px;
+    margin-top:5%;
+    
+}
+#history
+{
+    background-color:black;
+    height:60vh;
+    width:30vw;
+    float: left;
+    margin-left:8%;
+    border-radius:32px;
+    padding:2%;
+}
+#chtrmbdy
+{
+    /*background-color:blue;*/
+    overflow:auto;
+    
+}
+h2
+{
+    font-family: 'Acme', sans-serif;
+    color: #ffffff;
+    text-align:center;
 }
 #sd1
 {
@@ -123,6 +220,15 @@
     height:40vh;
     overflow:auto;
     padding-top:2%;
+}
+#timer
+{
+    /*background-color:red;*/
+    width:15vw;
+    height:20vh;
+    overflow:auto;
+    padding-top:2%;
+
 }
 .messageDiv
 {
