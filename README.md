@@ -1,3 +1,4 @@
+<div align="center">
 <h1>Project Name: V  HUB</h1><br>
 <h3>Project Developed By: Group 2</h3><br>
 <img src = "https://github.com/iub-cse-shq/v-hub/blob/master/public/images/logo.png">
@@ -30,7 +31,7 @@ where they can meet, and discuss; verify and clarify. Most importantly, have fun
 4. In the browser open http://localhost:3000/, and you should see the index page
 
 
-<img src = "">
+<img src = "https://github.com/iub-cse-shq/v-hub/blob/master/public/images/readme%20images/home.png">
 
 This is the homepage.
 
@@ -81,3 +82,5 @@ This is our organization search page.
 <img src = "https://github.com/iub-cse-shq/v-hub/blob/master/public/images/readme%20images/chat.png">
 
 This is our chat page.
+
+</div>
