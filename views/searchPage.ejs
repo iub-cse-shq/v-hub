@@ -7,13 +7,13 @@
                 
                 
                <div id="datepicker" align="center">
-                 <div class="input-group">
-                      <input class="form-control" type="text" placeholder="Search by Name" id="searchInput"/>
-                      <span class="input-group-btn">
-                        <button class="btn btn-success" type="button" id="searchOrgBtn">Search Organization</button>
-                        <button class="btn btn-dark" type="button" id="searchVolBtn">Search Volunteer</button>
-                        <button class="btn btn-warning" type="button" id="searchEventBtn">Search Event</button>
-                      </span>
+                 <div class="form-group">
+                       <input class="form-control" type="text" placeholder="Search by Name" id="searchInput"/>
+                      
+                        <button class="btn btn-success mt-3" type="button" id="searchOrgBtn">Search Organization</button>
+                        <button class="btn btn-dark mt-3" type="button" id="searchVolBtn">Search Volunteer</button>
+                        <button class="btn btn-warning mt-3" type="button" id="searchEventBtn">Search Event</button>
+                      
                   </div>
                 </div>
                 
@@ -57,7 +57,7 @@
                         
                         var img = $('<img>').addClass("card-img-top");
                         
-                        img.attr('src',"http://i.imgur.com/qK42fUu.jpg");
+                        img.attr('src',response.orgData[i].image);
                         carddiv.append(img);
                         
                             
@@ -86,14 +86,14 @@
              });
          })
          
-         // SEARCH VOLUNTEER BUTTON CLICKED pic name rating //event  Event-> Title, location, Organizer, status
+         // SEARCH VOLUNTEER BUTTON CLICKED 
          $('#searchVolBtn').click(function(event){
-           $( "#del" ).remove();          
-           var sKey={
-               searchKey: $('#searchInput').val()
-           }
+          $( "#del" ).remove();          
+          var sKey={
+              searchKey: $('#searchInput').val()
+          }
           
-           $.ajax({
+          $.ajax({
                  method:"POST",
                  url:"/search/volunteer",
                  data:sKey
@@ -103,22 +103,22 @@
                 // console.log("DATA?")
                 // console.log((response.orgData).length);
                 for(var i=0; i< l; i++){ 
-                       if((response.volData).length == 0) {
+                      if((response.volData).length == 0) {
                           alert("DOES NOT EXIST");
-                       } else {
+                      } else {
                             var coldiv = $('<div>').addClass("col-md-3").attr("id","del");
                               
                         var carddiv=$('<div>').addClass("card");
                         
                         var img = $('<img>').addClass("card-img-top");
                         
-                        img.attr('src',"http://i.imgur.com/qK42fUu.jpg");
+                        img.attr('src',response.volData[i].image);
                         carddiv.append(img);
                         
                             
                         var cardbodydiv = $('<div>').addClass("card-body");
                         
-                        var a=$('<a>').attr("href","https://v-hub-shamahoque.c9users.io/organization/"+response.orgData[i]._id);
+                        var a=$('<a>').attr("href","https://v-hub-shamahoque.c9users.io/volunteer/"+response.volData[i]._id);
                         var namefont=$('<font>').attr({size:"5"}).text(response.volData[i].name);
                         a.append(namefont);
                         cardbodydiv.append(a);
@@ -126,16 +126,17 @@
                         var brk=$('<br>');
                         cardbodydiv.append(brk);
                         //---------------RATING---------------------------------------
-                        var ratingS=$('<i>')addClass.attr({});;
+                        /*
+                        var ratingS=$('<i>').addClass.attr();
                         for(var i=1; i< response.volData[i].rating; i++){ 
                          if(i <= response.volData[i].rating) {
                             <i class="fa fa-star" aria-hidden="true" style="font-size:4vh; color: #ffdd00"></i>
-                            ratingS..attr({});
+                            
                          } else {
                             <i class="fa fa-star" aria-hidden="true" style="font-size:4vh; color: #000"></i>
                          } 
-                       }
-                       //---------------RATING---------------------------------------
+                      }*/
+                      //---------------RATING---------------------------------------
                         // var webfont=$('<font>').attr({size:"4"}).text(response.volData[i].web);
                         // cardbodydiv.append(webfont);
                         
@@ -143,70 +144,69 @@
                         coldiv.append(carddiv);
                         $('#dynmc').append(coldiv);
                         
-                       } 
+                      } 
                  } 
              }).fail(function(response){
                  console.log("error khaise")
                  console.log(response.responseText);
              });
          })
+      
+      // SEARCH EVENT
       $('#searchEventBtn').click(function(event){
-           $( "#del" ).remove();          
-           var sKey={
-               searchKey: $('#searchInput').val()
-           }
+          $( "#del" ).remove();          
+          var sKey={
+              searchKey: $('#searchInput').val()
+          }
           
-           $.ajax({
+          $.ajax({
                  method:"POST",
-                 url:"/search/volunteer",
+                 url:"/search/event",
                  data:sKey
              }).done(function(response){
                 // console.log(typeof(response.orgData[0].name));
-                 var l= ((response.volData).length);
+                console.log(response.eventData);
+                 var l= ((response.eventData).length);
                 // console.log("DATA?")
-                // console.log((response.orgData).length);
+                // console.log((response.orgData).length); //event  Event-> Title, location, Organizer, status
                 for(var i=0; i< l; i++){ 
-                       if((response.volData).length == 0) {
+                      if((response.eventData).length == 0) {
                           alert("DOES NOT EXIST");
-                       } else {
+                      } else {
                             var coldiv = $('<div>').addClass("col-md-3").attr("id","del");
                               
                         var carddiv=$('<div>').addClass("card");
                         
                         var img = $('<img>').addClass("card-img-top");
                         
-                        img.attr('src',"http://i.imgur.com/qK42fUu.jpg");
+                        img.attr('src',response.eventData[i].image);
                         carddiv.append(img);
                         
                             
                         var cardbodydiv = $('<div>').addClass("card-body");
                         
-                        var a=$('<a>').attr("href","https://v-hub-shamahoque.c9users.io/organization/"+response.orgData[i]._id);
-                        var namefont=$('<font>').attr({size:"5"}).text(response.volData[i].name);
+                        var a=$('<a>').attr("href","https://v-hub-shamahoque.c9users.io/event/"+response.eventData[i]._id);
+                        var namefont=$('<font>').attr({size:"5"}).text(response.eventData[i].name);
                         a.append(namefont);
                         cardbodydiv.append(a);
                         
                         var brk=$('<br>');
                         cardbodydiv.append(brk);
-                        //---------------RATING---------------------------------------
-                        var ratingS=$('<i>')addClass.attr({});;
-                        for(var i=1; i< response.volData[i].rating; i++){ 
-                         if(i <= response.volData[i].rating) {
-                            <i class="fa fa-star" aria-hidden="true" style="font-size:4vh; color: #ffdd00"></i>
-                            ratingS..attr({});
-                         } else {
-                            <i class="fa fa-star" aria-hidden="true" style="font-size:4vh; color: #000"></i>
-                         } 
-                       }
-                       //---------------RATING---------------------------------------
-                        // var webfont=$('<font>').attr({size:"4"}).text(response.volData[i].web);
-                        // cardbodydiv.append(webfont);
                         
+                        // var Orgfont=$('<font>').attr({size:"4"}).text(response.eventData[i].organization);
+                        // cardbodydiv.append(Orgfont);
+                        
+                        // var brk=$('<br>');
+                        // cardbodydiv.append(brk);
+                        
+                        // var Locfont=$('<font>').attr({size:"4"}).text(response.eventData[i].location);
+                        // cardbodydiv.append(Locfont);
+                      
                         carddiv.append(cardbodydiv);
                         coldiv.append(carddiv);
                         $('#dynmc').append(coldiv);
                         
-                       } 
+                      } 
                  } 
              }).fail(function(response){
                  console.log("error khaise")

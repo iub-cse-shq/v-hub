@@ -1,0 +1,174 @@
+<%include ./partials/header.ejs%>
+
+<body id="body">
+<%include ./partials/navbar.ejs%>
+
+    <div id="view" class="row">
+        <div class="col-md-3">
+            <input type="text" id="chatroomname" class="w-100" placeholder="Chat room name">
+            <button id="searchroomBtn" class="btn btn-danger w-100">Enter Room</button>
+            <div id="sidepanel" class="card"  style = " overflow-y: scroll; height: 600px;" >
+                <h1>Side Panel</h1>
+                <hr>
+            </div>
+        </div>
+
+        <div id="mainpanel" class="col-md-6">
+            <h1 id = 'main-panel-title'>Chatroom Name</h1>
+            <!-- Actual chat room  -->
+            <div class="row">
+                <div id="chat-room" class = "col-md-12">
+                    <div class="card">
+                        <div id="chathistory"  style = "height: 600px; overflow-y: scroll;" class="card-block"></div>
+                    </div>
+                    <br>
+                    <textarea id="chatmessage" class="form-control" placeholder="Enter message...."></textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.dev.js"></script>
+    <script>
+        var socket = io();
+        
+        var username = '';
+        var chatroomname = '';
+        var userinfo = JSON.parse(localStorage.getItem("userinfo"));
+        var userid = '';
+        
+        if(userinfo){
+            userid = userinfo.id;
+        }
+        
+        if (localStorage.chatroomname) {
+            chatroomname = localStorage.chatroomname;
+        }
+        console.log("LOGGED IN USERID:" + userid);
+        console.log("LOCALSTO CHATROOMNAME: " + chatroomname);
+
+        (function () {
+            // helper element linker
+            var element = function (id) {
+                return document.getElementById(id);
+            }
+            // Elements
+            var sidepanel = element('sidepanel');
+            var mainpanel = element('mainpanel');
+            var searchroomBtn = element('searchroomBtn');
+
+            var chatRoomName = element('chatroomname');
+            var chatMessageBox = element('chatmessage');
+            var chatHistory = element('chathistory');
+
+            var mainPanelTitle = element('main-panel-title');
+
+            // Check if user is already in a chatroom from this browser 
+            // Load said chatroom
+            if (userid !== ''){
+                socket.emit('userlogin', userid);
+            }
+            
+            // SHIFT TO CALLBACK OF USER LOGIN
+            // if (chatroomname !== '') {
+            //     console.log("WE WILL EMIT SEARCHROOM MSG THAT SHOULD DO THE TRICK");
+            //     chatroomMaker = { roomname: chatroomname, name: username }
+            //     socket.emit('searchroom', chatroomMaker);
+            // }
+
+            // search for room or create one event
+            searchroomBtn.addEventListener('click', function () {
+                console.log("Room search button clicked");
+                chatroomname = chatRoomName.value;
+                localStorage.chatroomname = chatroomname;
+                console.log(chatroomname);
+                chatroomMaker = { roomname: chatRoomName.value, name: username };
+                if (chatRoomName.value !== "") {
+                    console.log(chatroomMaker);
+                    socket.emit('searchroom', chatroomMaker);
+                } else {
+                    //setStatus("Please enter room name")
+                }
+            });
+
+
+            // Handle chat entries event
+            chatMessageBox.addEventListener('keydown', function (event) {
+                if (event.which === 13 && event.shiftKey == false) {
+                    // Emit to server input
+                    socket.emit('chatinput', {
+                        chatroomname: chatroomname,
+                        name: username,
+                        message: chatMessageBox.value
+                    });
+                    event.preventDefault();
+                }
+            });
+
+            // Adding the new msg/s to all clients in chat room
+            socket.on('output', function (data) {
+                if (data.length > 0) {
+                    // Filtering by chatroomname
+                    if (data[0].chatroomname == chatroomname) {
+                        for (var i = 0; i < data.length; i++) {
+                            console.log(data);
+                            var chat = document.createElement('div');
+                            chat.setAttribute('class', 'card');
+                            chat.innerHTML = data[0].name + ": " + data[0].message;
+                            chatHistory.appendChild(chat);
+                        }
+                        chatMessageBox.value = "";
+                    }
+                }
+            });
+
+            //load the actual chat room after chat room is found
+            socket.on('foundroom', function (data) {
+                if (data.length > 0) {
+                    if (data[0].name === chatroomname) {
+                        sidepanel.textContent = '';
+                        var title = document.createElement('div');
+                        title.innerHTML = "<h1>Members</h1><br>"
+                        sidepanel.append(title);
+                        for (var i = 0; i < data[0].members.length; i++) {
+                            var chatroom = document.createElement('div');
+                            chatroom.setAttribute('class', 'chat-room');
+                            chatroom.innerHTML = "<h3>" + data[0].members[i].name + "</h3>";
+                            sidepanel.appendChild(chatroom);
+                        }
+                        mainPanelTitle.textContent = data[0].name;
+                        chatHistory.innerHTML = "";
+                        for (var i = 0; i < data[0].chats.length; i++) {
+                            var chat = document.createElement('div');
+                            chat.setAttribute('class', 'card');
+                            chat.innerHTML = data[0].chats[i].name + ": " + data[0].chats[i].message;
+                            chatHistory.appendChild(chat);
+                        }
+                    }
+                }
+            });
+
+            // load Home page after user login
+            // username should come attached with chatroom data
+            socket.on('userlogged', function (data) {
+                console.log(data);
+                username = data.username;
+                if (data.length > 0) {
+                    sidepanel.textContent = '';
+                    var title = document.createElement('div');
+                    title.innerHTML = "<h1>Chat Rooms</h1><br>"
+                    sidepanel.append(title);
+                    for (var i = 0; i < data.length; i++) {
+                        var chatroom = document.createElement('div');
+                        chatroom.setAttribute('class', 'chat-room');
+                        chatroom.innerHTML = "<h3>" + data[i].name + "</h3>";
+                        sidepanel.appendChild(chatroom);
+                    }
+                }
+            });
+
+        })();
+    </script>
+    
+    
+<% include ./partials/footer.ejs %>

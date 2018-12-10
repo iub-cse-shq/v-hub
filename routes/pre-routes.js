@@ -1,6 +1,7 @@
 module.exports = function(app) {
   var pre = require('./../controllers/pre-controllers.js');
   app.get('/pre/login', pre.login);
+  app.post('/pre/signin', pre.signin);
   app.get('/pre/volunteer/signup', pre.vol_signup);
   app.get('/pre/chat', pre.chat);
   app.get('/pre/organization/signup', pre.org_signup);

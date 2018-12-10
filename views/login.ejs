@@ -1,0 +1,55 @@
+<%include ./partials/header.ejs%>
+<body id="body">
+    <%include ./partials/navbar.ejs%>
+    <div class="container">
+        <div class="text-center">
+            <img id="volsignup-logo" src="/images/logo-wide.png">
+            <div class="card card-body form-group">
+                <div class="row">
+                    <div class="col-md-3"></div>
+                    <div class="col-md-6">
+                        <select class="form-control mb-4" id="type">
+                            <option value="false">Volunteer</option>
+                            <option value="true">Organization</option>
+                        </select>
+                        
+                        <input type="text" placeholder="Username" id="username" class="form-control mb-4" required>
+                        <input type="password" placeholder="Password" id="password" class="form-control mb-4" required>
+                        
+                    </div>
+                        <div class="col-md-3"></div>
+                </div>
+                    <button id="volsignup-btn" class="btn btn-dark"><strong>Sign in</strong></button>
+            </div>
+        </div>
+    </div>
+    
+    
+    <!--Scripts-->
+    <script src="/js/jquery.js"></script>
+    <script>
+        var user = {};
+        $('#volsignup-btn').click(function(event){
+            user = {
+                username: $('#username').val(),
+                password: $('#password').val(),
+                usertype: $('#type').val()
+            }
+            
+            $.ajax({
+                method:"POST",
+                url:"/pre/signin",
+                data: user
+            }).done(function(response){
+                var userinfo = {};
+                userinfo.type = response.usertype;
+                userinfo.id = response.userID;
+                
+                localStorage.setItem('userinfo',JSON.stringify(userinfo));
+                window.location.replace("/"+response.usertype+"/"+response.userID);
+            }).fail(function(response){
+                console.log(response.responseText);
+            });
+        })
+    </script>
+<%include ./partials/footer.ejs%>

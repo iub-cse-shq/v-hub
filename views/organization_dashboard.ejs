@@ -3,31 +3,45 @@
     <%include ./partials/navbar.ejs%>
         <div class="container">
         <div class="text-center">
+            
+            <img id="orgdash-logo" src=<%=image%>>
             <h1 align ="center" style="color:yellow;"><%=title%></h1>
             <h2 align ="center"><%=web%></h2>
-            <img id="orgdash-logo" src="https://isodiol.com/wp-content/uploads/2018/08/IINT-PR-Aug2018-IINT-applauds-WHO-on-CBD.jpg">
             <div class="card card-body form-group">
                 <div class="row">
                     <div style="width:50px"></div>
-                    <div class="col-lg-5 col-sm-6" style="background-color:#f4d3b2">
+                    <div class="col-md-5" style="background-color:#009933;border-radius:16px;color:white">
                         <div class="thumbnail">
                             <a href="https://www.wikipedia.org/">
                             <img src=""></a>
                             <hr>
                             <h3><font size="6">Details</font></h3>
-                            <p><font size="4">email: <%=web%> </font></p>
+                            <p><font size="4">email: <%=email%> </font></p>
                             <p><font size="4">Address: <%=address%> </font></p>
                          </div>
                      </div>
                      <div style="width:75px"></div>
-                     <div class="col-lg-5 col-sm-6" style="background-color:#1ebea5">
+                     <div class="col-md-5" style="background-color:#990099;border-radius:16px;color:white">
                         <div class="thumbnail">
                             <a href="https://www.wikipedia.org/">
                             <img src=""></a>
                             <hr>
                             <h3><font size="6">Events</font></h3>
-                            <p><font size="4">need to get event lists</font></p>
+                            <p><font size="4">No events yet</font></p>
                             
+                         </div>
+                     </div>
+                      
+                </div>
+                <div class="row mt-4">
+                    <div class="col-md-12" style="background-color:#f4d3b2;border-radius:16px">
+                        <div class="thumbnail">
+                            <a href="https://www.wikipedia.org/">
+                            <img src=""></a>
+                            <hr>
+                            <h3><font size="6">About Us</font></h3>
+                            <p><font size="4"><%=description%> </font></p>
+                            <!--<p><font size="4">Address: <%=address%> </font></p>-->
                          </div>
                      </div>
                 </div>

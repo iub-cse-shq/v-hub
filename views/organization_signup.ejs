@@ -18,7 +18,10 @@
 
                     </div>
                     <div class="col-md-8">
-                        <input type="text" placeholder="Enter Image URL: " id="img" class="form-control mb-4" required>
+                       <input type="text" placeholder="Enter DP URL" id="image" class="form-control mb-4" required>
+                       <input type="password" placeholder="Password" id="password" class="form-control mb-4" required>
+                       <input type="password" placeholder="Confirm Password" id="password2" class="form-control mb-4" required>
+                       <img src="https://dna-explained.com/wp-content/uploads/2015/09/organization.jpg" width=350 height=400>
                     </div>
                 </div>
                 <br>
@@ -48,7 +51,10 @@
                 org_area: $('#area').val(),
                 org_phone: $('#phone').val(),
                 org_orgDesc:$('#orgDesc').val(),
-                org_img:$('#img').val()
+                org_img:$('#image').val(),
+                password:$('#password').val(),
+                password2:$('#password2').val(),
+                username: $('#name').val()
             }
             
             $.ajax({

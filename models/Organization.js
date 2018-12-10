@@ -31,7 +31,7 @@ var orgSchema = new Schema({
         type: String,
         required: "description required"
     },
-    img:{
+    image:{
         type:String,
         required:"image required"
     }

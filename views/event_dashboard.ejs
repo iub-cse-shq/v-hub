@@ -1,14 +1,13 @@
 <%include ./partials/header.ejs%>
-
 <body id="body">
     <%include ./partials/navbar.ejs%>
     <div class="container">
         <div class="row">
-            <div class='col-sm-12' style="background-color: #eaeaea;" ><img class="d-block w-100 img-responsive" src="<%=event.image[0]%>"></div>
+            <div class='col-sm-12' style="background-color: #eaeaea;width:100%;" ><img class="d-block w-100 img-responsive"style="border-radius:16px;margin-top:2%;" src="<%=event.image%>"></div>
         </div>
-
+        
         <div class="row align-items-start justify-content-start">
-            <div class="col-sm-8" style="background-color: #e0dece; height:600px;">
+            <div class="col-md-8" style="background-color: #e0dece; height:100vh;">
                 <h1>
                     <%=event.name%>
                 </h1>
@@ -16,15 +15,18 @@
                 <hr>
                 <h3 align="left">About <%=event.name%></h3>
                 <p><%=event.description%></p>
+                <div style="margin-left: 30%; margin-top: 15%;" class="mb-5">
+                    <button class="btn btn-block w-50 btn-dark" id="join">Join This Event</button>
+                </div>
             </div>
-
-            <div class="col-sm-4" style="background-color: #eaeaea; height:600px">
+            
+            <div class="col-md-4" style="background-color: #eaeaea; height:100vh">
                 <br>
                 <h2>Event Details:</h2>
                 <hr>
                 
                 <h4>Organized by: <br>
-                    <a style="text-decoration: none; color: Black" href="https://www.urbandictionary.com/define.php?term=tree%20hugger">
+                    <a style="text-decoration: none; color: Black" id="anchor">
                        <br> <%=event.organization%>
                     </a>
                 </h4>
@@ -37,11 +39,37 @@
                     <p>Status: Open</p>
                 <% } %>
                 
-                
-                
             </div>
         </div>
     </div>
 
+    <script src="/js/jquery.js"></script>
+    <script>
+        var eventID = "<%-eventID%>";
+        var userinfo=JSON.parse(localStorage.getItem("userinfo"));
+        var link = "/organization/" + userinfo.id;
+        $('#anchor').attr('href',link);
+        
+        userinfo=JSON.parse(localStorage.getItem("userinfo"));
+        
+        var joinObj = {
+            userID: userinfo.id,
+            eventID: eventID
+        }
+        
+        console.log(joinObj)
+        
+        $('#join').click(function(event){
+            $.ajax({
+                method:"POST",
+                url:"/event/join",
+                data: joinObj
+            }).done(function(response){
+                window.location.replace("/event/"+response.eventID);
+            }).fail(function(response){
+                console.log(response.responseText);
+            });
+        });
+    </script>
 
     <%include ./partials/footer.ejs%>

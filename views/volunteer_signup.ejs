@@ -1,24 +1,37 @@
 <%include ./partials/header.ejs%>
 <body id="body">
     <%include ./partials/navbar.ejs%>
+    <div class="text-center">
+        <% if(errors.length > 0){ %>
+            <div class="container bg-danger" style="color: white">
+                <% errors.forEach(function(error, index){ %>
+                    <p><%=error%></p>
+                <% }) %>
+            </div>
+        <% } %>
+    </div>
     <div class="container">
         <div class="text-center">
             <img id="volsignup-logo" src="/images/logo-wide.png">
             <div class="card card-body form-group">
                 <div class="row">
                     <div class="col-md-4">
-                        <input type="text" placeholder="Name" id="name" class="form-control mb-4">
-                        <input type="email" placeholder="Email" id="email" class="form-control mb-4">
-                        <input type="number" placeholder="Age" min="13" id="age" class="form-control mb-4">
+                        <input type="text" placeholder="Name" id="name" class="form-control mb-4" required>
+                        <input type="email" placeholder="Email" id="email" class="form-control mb-4" required>
+                        <input type="number" placeholder="Age" min="13" id="age" class="form-control mb-4" required>
                         
                         <select class="form-control mb-4" id="sex">
                             <option value="male">Male</option>
                             <option value="female">Female</option>
                         </select>
-                        <input type="text" placeholder="Address" id="address" class="form-control mb-4">
-                        <input type="text" placeholder="Prefered Area of Action" id="area" class="form-control mb-4">
-                        <input type="text" placeholder="Phone number" id="phone" class="form-control mb-4">
-                        <input type="text" placeholder="Enter DP URL" id="image" class="form-control mb-4">
+                        <input type="text" placeholder="Address" id="address" class="form-control mb-4" required>
+                        <input type="text" placeholder="Prefered Area of Action" id="area" class="form-control mb-4" required>
+                        <input type="text" placeholder="Phone number" id="phone" class="form-control mb-4" required>
+                        
+                        <input type="text" placeholder="Username" id="username" class="form-control mb-4" required>
+                        <input type="password" placeholder="Password" id="password" class="form-control mb-4" required>
+                        <input type="password" placeholder="Confirm Password" id="password2" class="form-control mb-4" required>
+                        <input type="text" placeholder="Enter DP URL" id="image" class="form-control mb-4" required>
                     </div>
                     <div class="col-md-8">
                         <img id="volsignup-im1" src="/images/vol1.jpg">
@@ -44,6 +57,9 @@
                 image: $('#image').val(),
                 area: $('#area').val(),
                 phone: $('#phone').val(),
+                username: $('#username').val(),
+                password: $('#password').val(),
+                password2: $('#password2').val()
             }
             
             $.ajax({

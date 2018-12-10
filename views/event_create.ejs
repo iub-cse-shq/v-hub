@@ -38,6 +38,7 @@
      <!--Scripts-->
     <script src="/js/jquery.js"></script>
     <script>
+        var userinfo=JSON.parse(localStorage.getItem("userinfo"));
         var event = {};
         $('#creatEvent-btn').click(function(event){
             event = {
@@ -47,11 +48,10 @@
                 image: $('#image').val(),
                 startdate: $('#datepickerstart').val(),
                 enddate: $('#datepickerend').val(),
-                organization: "Oumphtech",
+                organization: userinfo.id,
                 starttime: $('#starttime').val(),
                 endtime: $('#endtime').val()
             }
-            
             
             $.ajax({
                 method:"POST",

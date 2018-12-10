@@ -9,7 +9,9 @@ module.exports.dashboard = function(request, response) {
             title: data.name,
             email: data.email,
             web: data.web,
-            address: data.address
+            address: data.address,
+            image:data.image,
+            description:data.desc
         });
     })
 }

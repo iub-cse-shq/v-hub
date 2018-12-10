@@ -1,5 +1,33 @@
 <%include ./partials/header.ejs%>
 <body id="body">
     <%include ./partials/navbar.ejs%>
-    <h1>This is Home</h1>
+    <div class="container text-center" id="home-btn">
+        <button class="btn btn-dark btn-block" id="volsignbtn">Signup As Volunteer</button><br>
+        <button class="btn btn-danger btn-block" id="orgsignbtn">Signup As Organization</button>
+    </div>
+    
+    <script src="/js/jquery.js"></script>
+    <script>
+        $('volsignbtn').click(function(event){
+            $.ajax({
+                method:"GET",
+                url:"/pre/volunteer/signup",
+            }).done(function(response){
+                console.log(response);
+            }).fail(function(response){
+                console.log(response.responseText);
+            });
+        })
+        
+        $('orgsignbtn').click(function(event){
+            $.ajax({
+                method:"GET",
+                url:"/pre/organization/signup",
+            }).done(function(response){
+                console.log(response);
+            }).fail(function(response){
+                console.log(response.responseText);
+            });
+        })
+    </script>
 <%include ./partials/footer.ejs%>
