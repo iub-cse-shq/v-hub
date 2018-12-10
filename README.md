@@ -1,10 +1,9 @@
 <p align = "center">
-# Project Name: V  HUB
-## Project Developed By: Group 2
+<h1>Project Name: V  HUB</h1><br>
+<h3>Project Developed By: Group 2</h3><br>
 <img src = "https://github.com/iub-cse-shq/v-hub/blob/master/public/images/logo.png">
 </p>
 Project Introduction:
-//
 
 V- HUB (Volunteer Hub) is a portal for organziation and volunteers, where they meet hand in hand. Organziations typially
 rely on groups (facebook groups) which is in numbers and have to face the cost of security and trust.
@@ -12,8 +11,7 @@ Likewise, volunteers face even more trouble searching for volunteering events an
 V-HUB is a small step towards solving this real-world problem, creating a "hang-out" for organizations and volunteers
 where they can meet, and discuss; verify and clarify. Most importantly, have fun for helping humanity, for 
 "Humanity is an addiction"
-//
-"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+
 
 
 **How to set up the code in your machine locallyo**

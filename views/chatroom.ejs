@@ -37,25 +37,26 @@
         var userinfo = JSON.parse(localStorage.getItem("userinfo"));
         var userid = '';
         
-        if(userinfo){
-            userid = userinfo.id;
-        } else {
-            console.log('NO USER');
-            element('chatbody').innerHTML = "";
-            console.log('BLYATIFUL!');
-        }
-        
-        if (localStorage.chatroomname) {
-            chatroomname = localStorage.chatroomname;
-        }
-        console.log("LOGGED IN USERID:" + userid);
-        console.log("LOCALSTO CHATROOMNAME: " + chatroomname);
-
         (function () {
             // helper element linker
             var element = function (id) {
                 return document.getElementById(id);
             }
+            
+            // CHECK IF USER IS LOGGED IN
+            if(userinfo){
+                userid = userinfo.id;
+            } else {
+                console.log('NO USER');
+                element('chatbody').innerHTML = "<h1>Nothing Here Man I donno what you think you find<h1>";
+                console.log('BLYATIFUL!');
+            }
+        
+            if (localStorage.chatroomname) {
+                chatroomname = localStorage.chatroomname;
+            }
+            
+            
             // Elements
             var sidepanel = element('sidepanel');
             var mainpanel = element('mainpanel');
