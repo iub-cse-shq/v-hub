@@ -10,54 +10,56 @@
     <!-- Navbar links -->
     <div class="collapse navbar-collapse" id="collapsibleNavbar">
       <ul class="navbar-nav" id="volunteer">
-        <!--<li class="nav-item">-->
-        <!--  <a class="nav-link" href="/pre/search">Search</a>-->
-        <!--</li>-->
-        
-        <!--<li class="nav-item">-->
-        <!--  <a class="nav-link" href="/chatroom">Chatroom</a>-->
-        <!--</li>-->
         <li class="nav-item">
-          <a class="nav-link" href="/event/create">Create Event</a>
+          <a class="nav-link" href="/pre/search" id="1">Search</a>
+        </li>
+        
+        <li class="nav-item">
+          <a class="nav-link" href="/chatroom" id="2">Chatroom</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/event/create" id="3">Create Event</a>
         </li>
       </ul>
     
       <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <a class="nav-link" href="/pre/login">Login</a>
+            <a class="nav-link" href="/pre/login" id="4">Login</a>
           </li>
-          <li class="nav-item nav-link">|</li>
+          <li class="nav-item nav-link" id="bar1">|</li>
           <li class="nav-item">
-            <a class="nav-link" href="/pre/volunteer/signup">Signup as Volunteer</a>
+            <a class="nav-link" href="/pre/volunteer/signup" id="5">Signup as Volunteer</a>
           </li>
-          <li class="nav-item nav-link">|</li>
+          <li class="nav-item nav-link" id="bar2">|</li>
           <li class="nav-item">
-            <a class="nav-link" href="/pre/organization/signup">Register Organization</a>
+            <a class="nav-link" href="/pre/organization/signup" id="6">Register Organization</a>
           </li>
           
           <li class="nav-item">
-            <a class="nav-link" href="/pre/login">Logout</a>
+            <a class="nav-link" href="/pre/login" id="7">Logout</a>
           </li>
       </ul>
     </div>
     
     <script src="/js/jquery.js"></script>
     <script>
-      var user = localStorage.getItem("userinfo") ? JSON.parse(localStorage.getItem("userinfo")) : "";
-      <li class="nav-item">
-          <a class="nav-link" href="/pre/search">Search</a>
-        </li>
-      if(user.type == 'volunteer'){
-        var li = $('<li>').addClass("nav-item");
-        var a= $("<a>").addClass("nav-link").attr("href","/pre/search").text("Search");
-        li.append(a);
-        $('#volunteer').append(li);
-        
-        var li = $('<li>').addClass("nav-item");
-        var a= $("<a>").addClass("nav-link").attr("href","/chatroom").text("Chatroom");
-        li.append(a);
-        $('#volunteer').append(li);
+      var userinfo= localStorage.getItem("userinfo")? JSON.parse(localStorage.getItem("userinfo")): "";
+      
+      if(userinfo.type == 'volunteer'){
+        $('#3').hide();
+        $('#4').hide();
+        $('#5').hide();
+        $('#6').hide();
+        $('#bar1').hide();
+        $('#bar2').hide();
       }
       
+      else if(userinfo.type == 'organization'){
+        $('#4').hide();
+        $('#5').hide();
+        $('#6').hide();
+        $('#bar1').hide();
+        $('#bar2').hide();
+      }
     </script>
   </nav>
