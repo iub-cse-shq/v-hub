@@ -1,6 +1,6 @@
 <%include ./partials/header.ejs%>
 
-<body id="body">
+<body id="chatbody">
 <%include ./partials/navbar.ejs%>
 
     <div id="view" class="row">
@@ -39,6 +39,10 @@
         
         if(userinfo){
             userid = userinfo.id;
+        } else {
+            console.log('NO USER');
+            element('chatbody').innerHTML = "";
+            console.log('BLYATIFUL!');
         }
         
         if (localStorage.chatroomname) {

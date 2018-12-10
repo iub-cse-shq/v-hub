@@ -4,42 +4,64 @@
 <img src = "https://github.com/iub-cse-shq/v-hub/blob/master/public/images/logo.png">
 </p>
 Project Introduction:
+//
 
+V- HUB (Volunteer Hub) is a portal for organziation and volunteers, where they meet hand in hand. Organziations typially
+rely on groups (facebook groups) which is in numbers and have to face the cost of security and trust.
+Likewise, volunteers face even more trouble searching for volunteering events and trusted organizations who host them.
+V-HUB is a small step towards solving this real-world problem, creating a "hang-out" for organizations and volunteers
+where they can meet, and discuss; verify and clarify. Most importantly, have fun for helping humanity, for 
+"Humanity is an addiction"
+//
 "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+
+
+**How to set up the code in your machine locallyo**
+
+1. Install [Node.js](https://nodejs.org/en/download/) and [MongoDB](https://www.mongodb.com/download-center?jmp=nav) on your machine.
+
+2. Download this code, and from command prompt run the following in project directory:
+
+   `npm install`
+
+
+3. To run the code, run the following code using correct directory:
+
+    `node server.js`
+
+    
+4. In the browser open http://localhost:3000/, and you should see the index page
+
 
 <img src = "">
 
 This is the homepage.
 
-<img src = "https://github.com/iub-cse-shq/v-hub/blob/master/public/images/readme%20images/Volunteer_SignUp.png">
+<img src = "https://github.com/iub-cse-shq/v-hub/blob/master/public/images/readme%20images/v_signup.png">
 
 This is the volunteer sign up page.
 
-<img src = "https://github.com/iub-cse-shq/v-hub/blob/master/public/images/readme%20images/Volunteer_Dashboard.png">
+<img src = "https://github.com/iub-cse-shq/v-hub/blob/master/public/images/readme%20images/v_dash.png">
 
 This is the volunteer dashboard page.
 
-<img src = "https://github.com/iub-cse-shq/v-hub/blob/master/public/images/readme%20images/Organization_SignUp.png">
+<img src = "https://github.com/iub-cse-shq/v-hub/blob/master/public/images/readme%20images/o_signup.png">
 
 This is the organization sign up page.
 
-<img src = "https://github.com/iub-cse-shq/v-hub/blob/master/public/images/readme%20images/Organization_Dashboard.png">
+<img src = "https://github.com/iub-cse-shq/v-hub/blob/master/public/images/readme%20images/o_dash.png">
 
 This is the organization dashboard page.
 
-<img src = "https://github.com/iub-cse-shq/v-hub/blob/master/public/images/readme%20images/Vol_Login.png">
+<img src = "https://github.com/iub-cse-shq/v-hub/blob/master/public/images/readme%20images/login.png">
 
-This is the volunteer login page.
+This is the login page.
 
-<img src = "https://github.com/iub-cse-shq/v-hub/blob/master/public/images/readme%20images/Org_Login.png">
-
-This is the organization login page.
-
-<img src = "https://github.com/iub-cse-shq/v-hub/blob/master/public/images/readme%20images/Event_Create_Form.png">
+<img src = "https://github.com/iub-cse-shq/v-hub/blob/master/public/images/readme%20images/c_event.png">
 
 This is our event creation form page.
 
-<img src = "https://github.com/iub-cse-shq/v-hub/blob/master/public/images/readme%20images/Event.png">
+<img src = "https://github.com/iub-cse-shq/v-hub/blob/master/public/images/readme%20images/e_dash.png">
 
 This is the event dashboard page.
 
@@ -47,18 +69,18 @@ This is the event dashboard page.
 
 This is our search page.
 
-<img src = "https://github.com/iub-cse-shq/v-hub/blob/master/public/images/readme%20images/v_search.png">
+<img src = "https://github.com/iub-cse-shq/v-hub/blob/master/public/images/readme%20images/s_vol.png">
 
 This is our volunteer search page.
 
-<img src = "https://github.com/iub-cse-shq/v-hub/blob/master/public/images/readme%20images/e_search.png">
+<img src = "https://github.com/iub-cse-shq/v-hub/blob/master/public/images/readme%20images/s_evt.png">
 
 This is our event search page.
 
-<img src = "https://github.com/iub-cse-shq/v-hub/blob/master/public/images/readme%20images/o_search.png">
+<img src = "https://github.com/iub-cse-shq/v-hub/blob/master/public/images/readme%20images/s_org.png">
 
 This is our organization search page.
 
-<img src = "">
+<img src = "https://github.com/iub-cse-shq/v-hub/blob/master/public/images/readme%20images/chat.png">
 
 This is our chat page.
