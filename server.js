@@ -20,10 +20,11 @@ mongoose.connection.on('error', function(error) {
 
 //################### Chat ################################
 var Chatroom = require('./models/Chatroom.js');
+var User = require('./models/User.js');
 mongoose.connection.once('open', function() {
   // WARNING DONOT UNFOLD
   io.on('connection', function(socket) {
-  // YE BE WARNED
+    // YE BE WARNED
     socket.on('searchroom', function(data) {
       // emits the the new updated record
       var emitLatest = function() {
@@ -41,8 +42,10 @@ mongoose.connection.once('open', function() {
         if (res.length <= 0) {
           var new_chatroom = new Chatroom({ name: data.roomname, members: [{ name: data.name }], chats: [] });
           new_chatroom.save(function(err, res) {
-            if (err)
-            emitLatest();
+            if (err){
+              console.log("SEND CHATROOM NAME BLYAAAAT!");
+            }
+              emitLatest();
           });
         }
         else if (!res[0].members.find(o => o.name === data.name)) {
@@ -55,15 +58,30 @@ mongoose.connection.once('open', function() {
         }
       });
     });
-
-    socket.on('userlogin', function(data) {
-      Chatroom.find(function(err, res) {
-        if (err) {
-          throw err;
+  
+  
+  // CHANGED PART
+    socket.on('userlogin', function(userId) {
+      User.find({ userid: userId }, function(err, res) {
+        if (res.length < 0) {
+          console.log("User not found in user database");
         }
-        //Emmit messages
-        socket.emit('userlogged', res);
+        else {
+          var usernameT = res[0].username;
+          Chatroom.find(function(err, result) {
+            if (err) {
+              throw err;
+            }
+            var sendthis = {data: result,
+              username: usernameT   
+            };
+            console.log(result);
+            //Emmit messages
+            socket.emit('userlogged', sendthis);
+          });
+        }
       });
+
     });
 
     //Hande input events
@@ -109,7 +127,7 @@ app.get('/', function(request, response) {
 
 app.get('/chatroom', function(request, response) {
   response.render('chatroom.ejs', {
-      title: "Chat Room"
+    title: "Chat Room"
   });
 });
 

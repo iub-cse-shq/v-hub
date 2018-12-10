@@ -69,12 +69,6 @@
                 socket.emit('userlogin', userid);
             }
             
-            // SHIFT TO CALLBACK OF USER LOGIN
-            // if (chatroomname !== '') {
-            //     console.log("WE WILL EMIT SEARCHROOM MSG THAT SHOULD DO THE TRICK");
-            //     chatroomMaker = { roomname: chatroomname, name: username }
-            //     socket.emit('searchroom', chatroomMaker);
-            // }
 
             // search for room or create one event
             searchroomBtn.addEventListener('click', function () {
@@ -150,9 +144,10 @@
 
             // load Home page after user login
             // username should come attached with chatroom data
-            socket.on('userlogged', function (data) {
-                console.log(data);
-                username = data.username;
+            socket.on('userlogged', function (result) {
+                var data = result.data;
+                console.log(result.username);
+                username = (result.username);
                 if (data.length > 0) {
                     sidepanel.textContent = '';
                     var title = document.createElement('div');
@@ -164,6 +159,11 @@
                         chatroom.innerHTML = "<h3>" + data[i].name + "</h3>";
                         sidepanel.appendChild(chatroom);
                     }
+                }
+                if (chatroomname !== '' && username !== '') {
+                    console.log("WE WILL EMIT SEARCHROOM MSG THAT SHOULD DO THE TRICK");
+                    chatroomMaker = { roomname: chatroomname, name: username }
+                    socket.emit('searchroom', chatroomMaker);
                 }
             });
 

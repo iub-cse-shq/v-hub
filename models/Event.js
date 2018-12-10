@@ -35,19 +35,14 @@ var eventSchema = new Schema({
       type: String,
       required: "image required"
     },
-    members: [{
-      memID: {
-        // type: mongoose.Schema.ObjectId, 
-        // ref: 'Volunteer'
-        type: String
-      }
-    }],
-    
     // members: [{
-    //   memID: { type: mongoose.Schema.ObjectId, ref: 'User' },  
-    //   // type: String,
-    //   // required: true
+    //     type: mongoose.Schema.ObjectId, 
+    //     ref: 'Volunteer'
     // }],
+    
+    members: [{
+      type: String
+    }],
     
     organization:{ 
       type: String,

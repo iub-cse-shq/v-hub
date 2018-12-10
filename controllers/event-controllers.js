@@ -53,19 +53,23 @@ module.exports.event_single = function(request, response) {
 };
 
 module.exports.join = function(request, response) {
-    
+    /*
     var userObj={
         // members: request.body.userID
         memID: request.body.userID
     }
+    */
+    Event.findOneAndUpdate({_id: request.body.eventID}, {$push:{members:request.body.userID}}, {new: true}, (err, doc) => {
+        if (err) {
+            console.log("Something wrong when updating data!");
+        }
     
+        console.log(doc);
+    });
     return response.status(200).json({eventID: request.body.eventID});
     
-    /*
-    Event.findOne({_id: request.body.eventID}, function(err,data){
-        if(err)
-            return response.status(400).json({error: err})
-    });*/
+   
+   
 };
 
 module.exports.searchEvent = function(request, response) {
