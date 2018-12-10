@@ -3,7 +3,7 @@ module.exports = function(app) {
   app.get('/pre/login', pre.login);
   app.post('/pre/signin', pre.signin);
   app.get('/pre/volunteer/signup', pre.vol_signup);
-  app.get('/pre/chat', pre.chat);
+  // app.get('/pre/chat', pre.chat);
   app.get('/pre/organization/signup', pre.org_signup);
   app.post('/pre/save/volunteer', pre.vol_save);
   app.post('/pre/save/organization', pre.org_save);

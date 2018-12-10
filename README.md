@@ -1,8 +1,7 @@
-<p align = "center">
 <h1>Project Name: V  HUB</h1><br>
 <h3>Project Developed By: Group 2</h3><br>
 <img src = "https://github.com/iub-cse-shq/v-hub/blob/master/public/images/logo.png">
-</p>
+
 Project Introduction:
 
 V- HUB (Volunteer Hub) is a portal for organziation and volunteers, where they meet hand in hand. Organziations typially
