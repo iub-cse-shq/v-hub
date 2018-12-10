@@ -1,6 +1,6 @@
-# Project Name: Volunteer Hub
+# Project Name: V  HUB
 ## Project Developed By: Group 2
-<img src = "/images/logo.png">
+<img src = "https://github.com/iub-cse-shq/v-hub/blob/master/public/images/logo.png">
 
 Project Introduction:
 
@@ -10,8 +10,34 @@ Project Introduction:
 
 This is the homepage.
 
-<img src = "/images/readme images/Volunteer_SignUp.png">
+<img src = "https://github.com/iub-cse-shq/v-hub/blob/master/public/images/readme%20images/Volunteer_SignUp.png">
 
 This is the volunteer sign up page.
 
-<img src = "/images/readme images/Volunteer_Dashboard.png">
+<img src = "https://github.com/iub-cse-shq/v-hub/blob/master/public/images/readme%20images/Volunteer_Dashboard.png">
+
+This is the volunteer dashboard page.
+
+<img src = "https://github.com/iub-cse-shq/v-hub/blob/master/public/images/readme%20images/Organization_SignUp.png">
+
+This is the organization sign up page.
+
+<img src = "https://github.com/iub-cse-shq/v-hub/blob/master/public/images/readme%20images/Organization_Dashboard.png">
+
+This is the organization dashboard page.
+
+<img src = "https://github.com/iub-cse-shq/v-hub/blob/master/public/images/readme%20images/Vol_Login.png">
+
+This is the volunteer login page.
+
+<img src = "https://github.com/iub-cse-shq/v-hub/blob/master/public/images/readme%20images/Org_Login.png">
+
+This is the organization login page.
+
+<img src = "https://github.com/iub-cse-shq/v-hub/blob/master/public/images/readme%20images/Event_Create_Form.png">
+
+This is the event creation form page.
+
+<img src = "https://github.com/iub-cse-shq/v-hub/blob/master/public/images/readme%20images/Event.png">
+
+This is the event dashboard page.
