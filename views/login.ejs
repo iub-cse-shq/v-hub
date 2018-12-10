@@ -44,7 +44,7 @@
                 var userinfo = {};
                 userinfo.type = response.usertype;
                 userinfo.id = response.userID;
-                
+                localStorage.removeItem('userinfo');
                 localStorage.setItem('userinfo',JSON.stringify(userinfo));
                 window.location.replace("/"+response.usertype+"/"+response.userID);
             }).fail(function(response){
