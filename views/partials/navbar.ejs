@@ -1,7 +1,3 @@
-<script>
-  var user = JSON.parse(localStorage.getItem("userinfo"));
-  
-</script>
 <nav class="navbar navbar-expand-md bg-dark navbar-dark">
     <!-- Brand -->
     <a class="navbar-brand" href="/">V-HUB</a>
@@ -12,16 +8,15 @@
     </button>
 
     <!-- Navbar links -->
-    
     <div class="collapse navbar-collapse" id="collapsibleNavbar">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link" href="/pre/search">Search</a>
-        </li>
+      <ul class="navbar-nav" id="volunteer">
+        <!--<li class="nav-item">-->
+        <!--  <a class="nav-link" href="/pre/search">Search</a>-->
+        <!--</li>-->
         
-        <li class="nav-item">
-          <a class="nav-link" href="/chatroom">Chatroom</a>
-        </li>
+        <!--<li class="nav-item">-->
+        <!--  <a class="nav-link" href="/chatroom">Chatroom</a>-->
+        <!--</li>-->
         <li class="nav-item">
           <a class="nav-link" href="/event/create">Create Event</a>
         </li>
@@ -44,5 +39,25 @@
             <a class="nav-link" href="/pre/login">Logout</a>
           </li>
       </ul>
-    </div> 
+    </div>
+    
+    <script src="/js/jquery.js"></script>
+    <script>
+      var user = localStorage.getItem("userinfo") ? JSON.parse(localStorage.getItem("userinfo")) : "";
+      <li class="nav-item">
+          <a class="nav-link" href="/pre/search">Search</a>
+        </li>
+      if(user.type == 'volunteer'){
+        var li = $('<li>').addClass("nav-item");
+        var a= $("<a>").addClass("nav-link").attr("href","/pre/search").text("Search");
+        li.append(a);
+        $('#volunteer').append(li);
+        
+        var li = $('<li>').addClass("nav-item");
+        var a= $("<a>").addClass("nav-link").attr("href","/chatroom").text("Chatroom");
+        li.append(a);
+        $('#volunteer').append(li);
+      }
+      
+    </script>
   </nav>
