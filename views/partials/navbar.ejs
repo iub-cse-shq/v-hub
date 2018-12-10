@@ -44,7 +44,6 @@
     <script src="/js/jquery.js"></script>
     <script>
       var userinfo= localStorage.getItem("userinfo")? JSON.parse(localStorage.getItem("userinfo")): "";
-      
       if(userinfo.type == 'volunteer'){
         $('#3').hide();
         $('#4').hide();
@@ -61,6 +60,15 @@
         $('#bar1').hide();
         $('#bar2').hide();
       }
+      else{
+        $('#1').hide();
+        $('#2').hide();
+        $('#3').hide();
+        $('#7').hide();
+        $('#4').show();
+        $('#5').show();
+        $('#6').show();
+      }
       
       
       
@@ -68,9 +76,11 @@
         $('#1').hide();
         $('#2').hide();
         $('#3').hide();
+        $('#7').hide();
         $('#4').show();
         $('#5').show();
         $('#6').show();
+        localStorage.clear()
       });
     </script>
   </nav>

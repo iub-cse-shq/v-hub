@@ -1,6 +1,8 @@
+<p align = "center">
 # Project Name: V  HUB
 ## Project Developed By: Group 2
 <img src = "https://github.com/iub-cse-shq/v-hub/blob/master/public/images/logo.png">
+</p>
 Project Introduction:
 
 "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
@@ -53,6 +55,10 @@ This is our volunteer search page.
 
 This is our event search page.
 
-<img src = "">
+<img src = "https://github.com/iub-cse-shq/v-hub/blob/master/public/images/readme%20images/o_search.png">
 
 This is our organization search page.
+
+<img src = "">
+
+This is our chat page.
